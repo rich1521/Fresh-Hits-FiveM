@@ -1,5 +1,5 @@
-RegisterNetEvent('openLFM')
-AddEventHandler('openLFM', function()
+RegisterNetEvent('openFH')
+AddEventHandler('openFH', function()
     -- Zet de NUI-focus op true zodat je kunt interacteren
     SetNuiFocus(true, true)
 
@@ -24,10 +24,10 @@ RegisterNUICallback('close', function(data, cb)
     cb('ok')
 end)
 
-RegisterCommand("lfm", function()
+RegisterCommand("fh", function()
     -- Trigger het client-side event om de UI te openen
-    TriggerEvent('openLFM') -- Roep direct het event aan dat de UI opent
+    TriggerEvent('openFH') -- Roep direct het event aan dat de UI opent
 end, false)
 
 -- Optioneel: Voeg een beschrijving toe aan het commando
-TriggerEvent('chat:addSuggestion', '/lfm', 'Open de League-FM speler.')
+TriggerEvent('chat:addSuggestion', '/fh', 'Open de Fresh Hits speler.')

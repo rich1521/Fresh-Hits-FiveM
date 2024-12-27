@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'IntroRustBase';
-    src: url('https://academy.league-fm.nl/fonts/IntroRust-Base.woff2') format('woff2');
+    src: url('https://cdn.fresh-hits.nl/fonts/IntroRust-Base.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
@@ -18,17 +18,17 @@ body {
     right: 20px;
     width: 550px;
     height: 230px;
-    background-color: white;
+    background-color: rgb(18, 75, 40);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    border: 1px solid #2953A5;
+    border: 2px solid white;
     display: none;
     align-items: center;
     padding: 15px;
     gap: 20px; /* Zorgt voor ruimte tussen album art en de rest van de informatie */
 }
 
-.lfm-logo {
+.fh-logo {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -58,7 +58,7 @@ body {
     font-size: 26px;
     font-family: 'IntroRustBase', sans-serif; /* Fallback to sans-serif */
     font-weight: bold;
-    color: #2953A5;
+    color: white;
     margin: 0;
 }
 
@@ -67,7 +67,7 @@ body {
     top: calc(64px + 30px + 24px);
     font-size: 14px;
     font-weight: normal;
-    color: #2953A5;
+    color: white;
     margin: 5px 0 0 0;
 }
 
@@ -77,7 +77,7 @@ body {
     left: 354px;
     width: 50px;
     height: 50px;
-    background-color: #2953A5;
+    background-color: rgb(55, 143, 89);
     border: none;
     border-radius: 100%;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
@@ -98,7 +98,7 @@ body {
     appearance: none;
     width: 50%;
     height: 8px;
-    background: linear-gradient(to right, #2953A5 50%, #ddd 50%); /* Standaard 50% gevuld */
+    background: white; /* Standaard 50% gevuld */
     border-radius: 5px;
     outline: none;
     transition: background 0.3s; /* Voor een soepele overgang als de slider beweegt */
@@ -117,8 +117,8 @@ body {
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background: #2953A5;
-    border: 1px solid white; /* Wit randje om het balletje */
+    background: rgb(18, 75, 40);
+    border: 2px solid white; /* Wit randje om het balletje */
     cursor: pointer;
     margin-top: -5px; /* Zorgt ervoor dat het balletje gecentreerd is op de slider */
 }
@@ -134,7 +134,7 @@ body {
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background: #2953A5;
+    background: rgb(55, 143, 89);
     border: 1px solid white;
     cursor: pointer;
 }
@@ -148,7 +148,7 @@ body {
 }
 
 .volume-slider::-ms-fill-lower {
-    background: #2953A5;
+    background: rgb(55, 143, 89);
     border-radius: 5px;
 }
 
@@ -161,7 +161,7 @@ body {
     width: 18px;
     height: 18px;
     border-radius: 50%;
-    background: #2953A5;
+    background: rgb(55, 143, 89);
     border: 1px solid white;
     cursor: pointer;
 }
@@ -173,7 +173,7 @@ body {
     position: absolute;
     bottom: 0px;
     right: 0px;
-    background-color: #2953A5;
+    background-color: rgb(55, 143, 89);
     color: white;
     border: none;
     border-radius: 30% 0 10% 0;

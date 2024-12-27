@@ -1,7 +1,14 @@
-const nowPlayingUrl = "https://radiopaneel.league-fm.nl/api/nowplaying/leaguefm";
+const nowPlayingUrl = "https://radiopaneel.fresh-hits.nl/api/nowplaying/1";
         const audio = document.getElementById('audioPlayer');
         const playButton = document.getElementById('playButton');
         let isPlaying = false;
+
+        function truncateText(text, maxLength) {
+            if (text.length > maxLength) {
+                return text.slice(0, maxLength) + '...';
+            }
+            return text;
+        }
 
         async function fetchSongInfo() {
             try {
@@ -11,29 +18,28 @@ const nowPlayingUrl = "https://radiopaneel.league-fm.nl/api/nowplaying/leaguefm"
                 const artist = data.now_playing.song.artist;
                 const albumArt = data.now_playing.song.art 
                     ? data.now_playing.song.art 
-                    : "https://via.placeholder.com/80";
+                    : "https://cdn.fresh-hits.nl/get/logozondertekst.png";
 
-                document.getElementById('songTitle').innerText = song;
-                document.getElementById('artistName').innerText = artist;
+                document.getElementById('songTitle').innerText = truncateText(song, 17);
+                document.getElementById('artistName').innerText = truncateText(artist, 17);
                 document.getElementById('albumArt').src = albumArt;
             } catch (error) {
                 console.error("Error fetching song info:", error);
                 document.getElementById('songTitle').innerText = "Fout bij laden";
                 document.getElementById('artistName').innerText = "Onbekende artiest";
-                document.getElementById('albumArt').src = "https://academy.league-fm.nl/images/logolfm.png";
+                document.getElementById('albumArt').src = "https://cdn.fresh-hits.nl/get/logozondertekst.png";
             }
         }
 
-        // Ververs de songinformatie elke 30 seconden
         fetchSongInfo();
-        setInterval(fetchSongInfo, 30000);
+        setInterval(fetchSongInfo, 5000);
 
         function togglePlay() {
             if (isPlaying) {
                 audio.pause();
                 playButton.innerHTML = '&#9654;'; 
             } else {
-                audio.src = "https://radiopaneel.league-fm.nl/listen/leaguefm/stream"; // Reset de stream link
+                audio.src = "https://radiopaneel.fresh-hits.nl:8000/stream";
                 audio.play();
                 playButton.innerHTML = '&#10074;&#10074;'; 
             }
@@ -51,13 +57,12 @@ const nowPlayingUrl = "https://radiopaneel.league-fm.nl/api/nowplaying/leaguefm"
             });
         }
 
-        // Luister naar berichten vanuit de client om de UI te openen
         window.addEventListener('message', function(event) {
             if (event.data.type === 'ui') {
                 if (event.data.display === true) {
-                    document.getElementById('musicPlayer').style.display = 'flex'; // Toont de UI
+                    document.getElementById('musicPlayer').style.display = 'flex';
                 } else {
-                    document.getElementById('musicPlayer').style.display = 'none'; // Verbergt de UI
+                    document.getElementById('musicPlayer').style.display = 'none';
                 }
             }
         });
@@ -66,5 +71,5 @@ const nowPlayingUrl = "https://radiopaneel.league-fm.nl/api/nowplaying/leaguefm"
 
         volumeSlider.addEventListener('input', function() {
             const value = (this.value - this.min) / (this.max - this.min) * 100; 
-            this.style.background = `linear-gradient(to right, #2953A5 ${value}%, #ddd ${value}%)`;
+            this.style.background = `linear-gradient(to right, rgb(55, 143, 89) ${value}%, #ddd ${value}%)`;
         });
