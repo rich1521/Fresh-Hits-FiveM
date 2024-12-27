@@ -1,0 +1,186 @@
+@font-face {
+    font-family: 'IntroRustBase';
+    src: url('https://academy.league-fm.nl/fonts/IntroRust-Base.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'IntroRustBase', sans-serif; /* Fallback to sans-serif */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: transparent;
+}
+
+.music-player-container {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    width: 550px;
+    height: 230px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid #2953A5;
+    display: none;
+    align-items: center;
+    padding: 15px;
+    gap: 20px; /* Zorgt voor ruimte tussen album art en de rest van de informatie */
+}
+
+.lfm-logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px; /* Pas de grootte van het logo aan indien nodig */
+    height: auto;
+}
+
+.album-art {
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.music-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 5px;
+    align-items: flex-start; /* Zorgt ervoor dat de inhoud aan de linkerkant uitgelijnd wordt */
+    flex: 1;
+}
+
+.music-info h1 {
+    position: absolute;
+    top: 60px;
+    font-size: 26px;
+    font-family: 'IntroRustBase', sans-serif; /* Fallback to sans-serif */
+    font-weight: bold;
+    color: #2953A5;
+    margin: 0;
+}
+
+.music-info p {
+    position: absolute;
+    top: calc(64px + 30px + 24px);
+    font-size: 14px;
+    font-weight: normal;
+    color: #2953A5;
+    margin: 5px 0 0 0;
+}
+
+.play-button {
+    position: absolute;
+    bottom: 45px;
+    left: 354px;
+    width: 50px;
+    height: 50px;
+    background-color: #2953A5;
+    border: none;
+    border-radius: 100%;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    font-size: 22px;
+    cursor: pointer;
+    color: #fff;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px; /* Zorgt voor ruimte tussen artiestinformatie en de play-knop */
+}
+
+.volume-slider {
+    position: absolute;
+    bottom: 20px;
+    -webkit-appearance: none; /* Verwijder standaard slider stijl voor WebKit browsers */
+    appearance: none;
+    width: 50%;
+    height: 8px;
+    background: linear-gradient(to right, #2953A5 50%, #ddd 50%); /* Standaard 50% gevuld */
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s; /* Voor een soepele overgang als de slider beweegt */
+}
+
+.volume-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    background: transparent;
+    border-radius: 5px;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #2953A5;
+    border: 1px solid white; /* Wit randje om het balletje */
+    cursor: pointer;
+    margin-top: -5px; /* Zorgt ervoor dat het balletje gecentreerd is op de slider */
+}
+
+.volume-slider::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    background: transparent;
+    border-radius: 5px;
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #2953A5;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.volume-slider::-ms-track {
+    width: 100%;
+    height: 8px;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+.volume-slider::-ms-fill-lower {
+    background: #2953A5;
+    border-radius: 5px;
+}
+
+.volume-slider::-ms-fill-upper {
+    background: #ddd;
+    border-radius: 5px;
+}
+
+.volume-slider::-ms-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #2953A5;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+/* JavaScript zal deze functie gebruiken om de slider dynamisch te stylen */
+
+
+.close-button {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    background-color: #2953A5;
+    color: white;
+    border: none;
+    border-radius: 30% 0 10% 0;
+    width: 40px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}

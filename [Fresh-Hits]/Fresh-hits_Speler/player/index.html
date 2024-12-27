@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>LeagueFM Speler</title>
+</head>
+<body>
+    <div class="music-player-container" id="musicPlayer">
+        <img src="https://academy.league-fm.nl/images/logolfm.png" alt="LFM Logo" class="lfm-logo">
+        <img src="https://academy.league-fm.nl/images/logolfm.png" alt="Album Art" class="album-art" id="albumArt">
+        
+        <div class="music-info">
+            <h1 id="songTitle">Laden...</h1>
+            <p id="artistName">Laden...</p>
+            <button class="play-button" id="playButton" onclick="togglePlay()">&#9654;</button>
+            <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="50" onchange="changeVolume(this.value)">
+        </div>
+
+        <button class="close-button" onclick="closeUI()">X</button>
+    </div>
+
+    <audio id="audioPlayer" src="https://radiopaneel.league-fm.nl/listen/leaguefm/stream"></audio>
+
+    <script src="player.js"></script>
+</body>
+</html>
